@@ -32,6 +32,13 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     setMounted(true)
   }, [])
 
+  // Update the HTML lang attribute when language changes
+  React.useEffect(() => {
+    if (mounted) {
+      document.documentElement.lang = language
+    }
+  }, [language, mounted])
+
   const setLanguage = (lang: Language) => {
     setLanguageState(lang)
     localStorage.setItem("portfolio-language", lang)

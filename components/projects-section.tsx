@@ -13,6 +13,7 @@ const translations = {
     viewCode: "View Code",
     viewDetails: "View Details",
     inProgress: "In Progress",
+    visitSite: "Visit Site",
     bodasVintage: {
       title: "Bodas Vintage",
       subtitle: "Full-Stack Development in Ruby on Rails 8",
@@ -51,6 +52,7 @@ const translations = {
     viewCode: "Ver Código",
     viewDetails: "Ver Detalles",
     inProgress: "En Desarrollo",
+    visitSite: "Visitar Web",
   bodasVintage: {
     title: "Bodas Vintage",
     subtitle: "Desarrollo Full-Stack en Ruby on Rails 8",
@@ -99,10 +101,7 @@ export function ProjectsSection({ language }: ProjectsSectionProps) {
 
         <div className="grid gap-8">
           {/* Featured Project - Bodas Vintage (Private) */}
-          <Link 
-            href="/projects/bodas-vintage"
-            className="block bg-card border border-border rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all hover:border-primary/30 group cursor-pointer"
-          >
+          <div className="bg-card border border-border rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all hover:border-primary/30 group">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
                 <Heart className="w-5 h-5 text-primary" />
@@ -144,6 +143,16 @@ export function ProjectsSection({ language }: ProjectsSectionProps) {
             </div>
             <div className="flex flex-wrap gap-3">
               <Button
+                size="sm"
+                className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl"
+                asChild
+              >
+                <Link href="https://www.vwclassicastur.com/">
+                  <ExternalLink className="w-4 h-4" />
+                  {t.visitSite}
+                </Link>
+              </Button>
+              <Button
                 variant="outline"
                 size="sm"
                 disabled
@@ -155,18 +164,18 @@ export function ProjectsSection({ language }: ProjectsSectionProps) {
               <Button
                 size="sm"
                 className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl"
+                asChild
               >
-                <ExternalLink className="w-4 h-4" />
-                {t.viewDetails}
+                <Link href="/projects/bodas-vintage">
+                  <ExternalLink className="w-4 h-4" />
+                  {t.viewDetails}
+                </Link>
               </Button>
             </div>
-          </Link>
+          </div>
 
           {/* Secondary Project - LinkedIn Games (Public) */}
-          <Link 
-            href="/projects/linkedin-games"
-            className="block bg-card border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-all hover:border-blue-500/30 group cursor-pointer"
-          >
+          <div className="bg-card border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition-all hover:border-blue-500/30 group">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center">
                 <Chrome className="w-5 h-5 text-blue-500" />
@@ -220,12 +229,15 @@ export function ProjectsSection({ language }: ProjectsSectionProps) {
               <Button
                 size="sm"
                 className="gap-2 bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-xl"
+                asChild
               >
-                <ExternalLink className="w-4 h-4" />
-                {t.viewDetails}
+                <Link href="/projects/linkedin-games">
+                  <ExternalLink className="w-4 h-4" />
+                  {t.viewDetails}
+                </Link>
               </Button>
             </div>
-          </Link>
+          </div>
 
           {/* Third Project - Crochet Store (In Progress) */}
           <div className="bg-card border border-dashed border-border rounded-2xl p-6 shadow-sm relative overflow-hidden">
